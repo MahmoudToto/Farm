@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+   >
+
+   <EditText
+       android:id="@+id/tv_register_name"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_margin="16dp"
+       android:padding="16dp"
+       android:hint="Name"
+       android:textSize="24sp">
+   </EditText>
+
+   <EditText
+       android:id="@+id/tv_register_email"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:padding="16dp"
+       android:inputType="textEmailAddress"
+
+       android:layout_margin="16dp"
+       android:hint="Email"
+       android:textSize="24sp">
+   </EditText>
+
+   <EditText
+       android:id="@+id/tv_register_password"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:inputType="textPassword"
+       android:padding="16dp"
+       android:layout_margin="16dp"
+       android:hint="Password"
+       android:textSize="24sp"
+       >
+   </EditText>
+
+   <EditText
+       android:id="@+id/tv_register_number"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:padding="16dp"
+       android:layout_margin="16dp"
+       android:hint="Number"
+       android:inputType="number"
+       android:textSize="24sp"
+       >
+   </EditText>
+
+   <Button
+       android:id="@+id/btn_create_account"
+       android:layout_width="@dimen/_200sdp"
+       android:layout_height="wrap_content"
+       android:text="create account"
+       android:padding="8dp"
+       android:backgroundTint="#4CAF50"
+       android:layout_margin="16dp"
+       />
+
+</LinearLayout>

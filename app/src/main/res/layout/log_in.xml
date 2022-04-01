@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    style="@style/Theme.AppCompat.NoActionBar"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    >
+
+    <TextView
+        android:id="@+id/sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="SIGN IN"
+        android:textSize="24sp"
+        >
+
+    </TextView>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/user_iv"
+        android:layout_width="122dp"
+        android:layout_height="133dp"
+        android:src="@drawable/farm">
+
+    </de.hdodenhof.circleimageview.CircleImageView>
+
+    <EditText
+        android:id="@+id/log_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:drawableStart="@drawable/outline_account_circle_black_24dp"
+        android:gravity="start"
+        android:hint="User Name"
+        android:padding="16dp"
+        android:textSize="24sp"
+        >
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/log_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:drawableStart="@drawable/outline_lock_black_24dp"
+        android:ems="10"
+        android:gravity="start"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="16dp"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btn_log_in"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_margin="16dp"
+        android:padding="16dp"
+        android:text="Login">
+
+    </Button>
+
+    <TextView
+        android:id="@+id/tv_forget_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:padding="8dp"
+        android:text="Forget Password ?"
+        >
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/tv_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Register"
+        android:textSize="24sp"
+        >
+    </TextView>
+
+
+</LinearLayout>
