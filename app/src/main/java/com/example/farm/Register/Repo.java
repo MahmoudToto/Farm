@@ -25,30 +25,24 @@ public class Repo {
 
     public void CreateEmailAdmin(Admin user, String email, String password){
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete( Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                         user.setId(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                            SavingData(user);
-                            sentData.Successed();
-                        }else{
-                            sentData.Error(task.getException().getMessage());
-                        }
+                .addOnCompleteListener(task -> {
+                    if(task.isSuccessful()){
+                     user.setId(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                        SavingData(user);
+                        sentData.Successed();
+                    }else{
+                        sentData.Error(task.getException().getMessage());
                     }
                 });
     }
     private void SavingData(Admin userAd) {
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         databaseReference.child(uid).setValue(userAd)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete( Task<Void> task) {
-                        if(task.isSuccessful()){
-                            sentData.Successed();
-                        }else{
-                            sentData.Error(task.getException().getMessage());
-                        }
+                .addOnCompleteListener(task -> {
+                    if(task.isSuccessful()){
+                        sentData.Successed();
+                    }else{
+                        sentData.Error(task.getException().getMessage());
                     }
                 });
 

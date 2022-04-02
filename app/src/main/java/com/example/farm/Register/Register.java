@@ -19,6 +19,7 @@ public class Register extends AppCompatActivity {
     Button btn_create_account;
     String name, email, password, number;
     RegisterViewModel mvvm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,18 +36,22 @@ public class Register extends AppCompatActivity {
         mvvm = ViewModelProviders.of(this, factory).get(RegisterViewModel.class);
 
 
-        btn_create_account.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                name = register_name.getText().toString();
-                email = register_email.getText().toString();
-                password = register_password.getText().toString();
-                number = register_number.getText().toString();
-                Admin user_info = new Admin(name, email, number, password);
-                mvvm.CreateEmailandSavindData(user_info, email, password);
-            }
+        btn_create_account.setOnClickListener(view -> {
+            if(!check()) return;
+            name = register_name.getText().toString();
+            email = register_email.getText().toString();
+            password = register_password.getText().toString();
+            number = register_number.getText().toString();
+            Admin user_info = new Admin(name, email, number, password);
+            mvvm.CreateEmailandSavindData(user_info, email, password);
         });
 
+    }
+
+    private boolean check() {
+
+
+        return true;
     }
 
 }

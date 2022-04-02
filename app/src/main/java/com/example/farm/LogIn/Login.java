@@ -26,57 +26,43 @@ import java.util.regex.Pattern;
 public class Login extends AppCompatActivity {
     TextView register;
     Button login;
-    EditText  register_password, register_email;
-    String getemail,getpassword ; 
+    EditText register_password, register_email;
+    String getemail, getpassword;
     LoginViewModel mvvm;
-    FirebaseAuth fauth ;
+    FirebaseAuth fauth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.log_in);
 
-        register =  findViewById(R.id.tv_register);
+        register = findViewById(R.id.tv_register);
         register_email = findViewById(R.id.log_user_name);
         register_password = findViewById(R.id.log_password);
         fauth = FirebaseAuth.getInstance();
         login = findViewById(R.id.btn_log_in);
 
-        ViewModelFactory factory= new ViewModelFactory(this);
+        ViewModelFactory factory = new ViewModelFactory(this);
         mvvm = ViewModelProviders.of(this, factory).get(LoginViewModel.class);
 
-        if(getemail.isEmpty()){
-            register_email.setError("Email is required");
-            register_email.requestFocus();
-        }
-        else if (!Patterns.EMAIL_ADDRESS.matcher(getemail).matches()){
-            register_email.setError("Email is valid");
-            register_email.requestFocus();
-        }
-        else if (getpassword.isEmpty()){
-            register_password.setError("Password is required");
-            register_password.requestFocus();
-        }else{
-            Toast.makeText(this, "بس يامنيوك", Toast.LENGTH_SHORT).show();
-        }
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                 getemail = register_email.getText().toString().trim();
-                 getpassword = register_password.getText().toString().trim();
-                    mvvm.LogIn(getemail, getpassword);
-                
-            }
+        login.setOnClickListener(view -> {
+            getemail = register_email.getText().toString().trim();
+            getpassword = register_password.getText().toString().trim();
+            if(!check(getemail, getpassword)) return;
 
+            mvvm.LogIn(getemail, getpassword);
         });
 
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Register.class);
-                startActivity(intent);
-
-            }
+        register.setOnClickListener(view -> {
+            Intent intent = new Intent(this, Register.class);
+            startActivity(intent);
         });
 
+    }
+
+    private boolean check(String getemail, String getpassword) {
+        if(getemail.isEmpty()) return false;
+        if(getpassword.length() < 6) return false;
+        return true;
     }
 }
