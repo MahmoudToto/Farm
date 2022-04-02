@@ -1,5 +1,6 @@
 package com.example.farm;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -28,13 +29,15 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void checkForUser() {
-        if(mAuth.getCurrentUser()== null) {
+        if(mAuth.getCurrentUser() == null) {
             // -- Send user to login
+            Log.i("Splash", "User is null");
             startActivity(new Intent(this, Login.class));
         } else {
+            Log.i("Splash", "User is here : " + mAuth.getCurrentUser().getUid());
             startActivity(new Intent(this, MainActivity.class));
-
         }
+
     }
 
 }

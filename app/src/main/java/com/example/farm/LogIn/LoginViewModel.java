@@ -24,6 +24,7 @@ public class LoginViewModel extends ViewModel implements LoginRepo.loginrepose {
 
     @Override
     public void Result() {
+
         context.startActivity(new Intent(context, MainActivity.class));
     }
 
