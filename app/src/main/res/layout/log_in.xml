@@ -31,10 +31,11 @@
     </de.hdodenhof.circleimageview.CircleImageView>
 
     <EditText
-        android:id="@+id/log_user_name"
+        android:id="@+id/log_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:drawablePadding="@dimen/_10sdp"
         android:drawableStart="@drawable/outline_account_circle_black_24dp"
         android:gravity="start"
         android:hint="User Name"
@@ -50,6 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:drawableStart="@drawable/outline_lock_black_24dp"
+        android:drawablePadding="@dimen/_10sdp"
         android:ems="10"
         android:gravity="start"
         android:hint="Password"

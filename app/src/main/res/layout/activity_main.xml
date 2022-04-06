@@ -9,32 +9,34 @@
 
     <EditText
         android:id="@+id/tv_search"
-        android:layout_width="403dp"
-        android:layout_height="61dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
         android:allowUndo="true"
+        android:drawableStart="@drawable/search"
         android:drawablePadding="@dimen/_6sdp"
         android:hint="Search"
-        android:drawableStart="@drawable/search"
         android:padding="@dimen/_10sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="406dp"
         android:id="@+id/rv_main"
+        android:layout_width="406dp"
         android:layout_height="544dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_search" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_search"
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_main_add"
+        android:id="@+id/main_fab_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#4CAF50"

@@ -12,20 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Farm">
         <activity
-            android:name=".Data.Data"
+            android:name=".ui.data.DataActivity"
             android:exported="false" />
         <activity
-            android:name=".LogIn.Login"
+            android:name=".ui.login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".Register.Register"
+            android:name=".ui.register.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="false" />
 
         <activity
-            android:name=".SplashScreen"
+            android:name=".ui.splash.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

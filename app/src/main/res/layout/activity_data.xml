@@ -1,67 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_gravity="center"
-    android:gravity="center"
-    >
-
-    <EditText
-        android:id="@+id/tv_client_name"
-        android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ProgressBar
+        android:id="@+id/data_pb"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:padding="16dp"
-        android:hint="Name"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@color/teal_700"
+        />
 
-        android:textSize="24sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/tv_client_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:hint="Name"
+            android:padding="@dimen/_16sdp"
+
+            android:textSize="@dimen/_20sdp" />
+
         <EditText
             android:id="@+id/tv_client_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/_10sdp"
             android:hint="Number"
             android:inputType="number"
-            android:textSize="24sp"
-            >
-    </EditText>
+            android:padding="16dp"
+            android:textSize="24sp" />
 
-    <EditText
-        android:id="@+id/tv_client_area"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:layout_margin="16dp"
-        android:hint="Area"
-        android:inputType="number"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        android:textSize="24sp">
-    </EditText>
-
-
-    <EditText
-        android:id="@+id/tv_client_plant"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:layout_margin="16dp"
-        android:hint="plant type"
-        android:textSize="24sp"
-        >
-    </EditText>
-    <Button
-        android:id="@+id/btn_create_account"
-        android:layout_width="@dimen/_200sdp"
-        android:layout_height="wrap_content"
-        android:text="Save client"
-        android:padding="8dp"
-        android:backgroundTint="#4CAF50"
-        android:layout_margin="16dp"
-        />
+            <EditText
+                android:id="@+id/tv_client_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:hint="Area"
+                android:inputType="number"
+                android:padding="16dp"
+                android:textSize="24sp" />
 
 
+            <EditText
+                android:id="@+id/tv_seller_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:hint="Seller Name"
+                android:padding="16dp"
+                android:textSize="24sp" />
+
+        </LinearLayout>
 
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/tv_client_plant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:hint="plant type"
+            android:padding="16dp"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/btn_save_data"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:backgroundTint="#4CAF50"
+            android:padding="8dp"
+            android:text="Save Data"
+            />
+
+    </LinearLayout>
+</RelativeLayout>

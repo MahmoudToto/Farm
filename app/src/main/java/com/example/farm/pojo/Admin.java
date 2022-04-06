@@ -1,8 +1,10 @@
 package com.example.farm.pojo;
 
-public class Admin {
-    String name, email,number,password,id;
-    boolean active = true;
+import java.io.Serializable;
+
+public class Admin implements Serializable {
+    private String name, email,number,password,id;
+    private boolean active = true;
 
     public Admin(String name, String email, String number, String password) {
         this.name = name;
@@ -11,6 +13,16 @@ public class Admin {
         this.password = password;
     }
 
+    public Admin(String name, String email, String number) {
+        this.name = name;
+        this.email = email;
+        this.number = number;
+    }
+
+    public Admin(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 
     public boolean isActive() {
         return active;
