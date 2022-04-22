@@ -1,8 +1,6 @@
 package com.example.farm.ui.login;
 
 import android.app.Application;
-import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -11,20 +9,18 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.farm.pojo.Admin;
 import com.example.farm.repo.firebase.AuthInterface;
-import com.example.farm.repo.firebase.Repo;
-
-import java.util.HashMap;
+import com.example.farm.repo.firebase.FireBase;
 
 public class LoginViewModel extends AndroidViewModel implements AuthInterface {
-    private Repo repo;
+    private FireBase fireBase;
     private MutableLiveData<Admin> result;
     public LoginViewModel(@NonNull Application application) {
         super(application);
-        repo = Repo.getInstance(application);
+        fireBase = FireBase.getInstance(application);
         result = new MutableLiveData<>();
     }
     public LiveData<Admin> login(Admin admin){
-        repo.login(admin, this);
+        fireBase.login(admin, this);
         return result;
 
     }

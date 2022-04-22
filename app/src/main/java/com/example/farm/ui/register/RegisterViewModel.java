@@ -9,20 +9,20 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.farm.pojo.Admin;
 import com.example.farm.repo.firebase.AuthInterface;
-import com.example.farm.repo.firebase.Repo;
+import com.example.farm.repo.firebase.FireBase;
 
 public class RegisterViewModel extends AndroidViewModel implements AuthInterface {
-    private Repo repo;
+    private FireBase fireBase;
     private MutableLiveData<Admin> result;
 
     public RegisterViewModel(@NonNull Application application) {
         super(application);
-        repo = Repo.getInstance(application);
+        fireBase = FireBase.getInstance(application);
         result = new MutableLiveData<>();
     }
 
     public LiveData<Admin> createEmailAdmin(Admin admin){
-        repo.createEmailAdmin(admin, this);
+        fireBase.createEmailAdmin(admin, this);
         return result;
     }
 

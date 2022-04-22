@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         register.setOnClickListener(view -> {
             Intent intent = new Intent(this, RegisterActivity.class);
             startActivity(intent);
-            finish();
+
         });
 
     }

@@ -10,6 +10,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.farm.R;
@@ -48,14 +49,28 @@ public class DataActivity extends AppCompatActivity {
                     sellerName.getText().toString(),
                     number.getText().toString());
             progressBar.setVisibility(View.VISIBLE);
-            viewModel.registerFarm(farm).observe(DataActivity.this, result -> {
-                progressBar.setVisibility(View.GONE);
-                if(result!=null){
-                    Toast.makeText(this, "Inserted", Toast.LENGTH_SHORT).show();
+            viewModel.insertFarmer(farm).observe(this, new Observer<Long>() {
+                @Override
+                public void onChanged(Long id) {
+                    progressBar.setVisibility(View.GONE);
                     finish();
+                    //viewModel.registerFarm(farm).observe(DataActivity.this, result -> {
+    //                progressBar.setVisibility(View.GONE);
+    //                if(result!=null){
+    //                    Toast.makeText(this, "Inserted", Toast.LENGTH_SHORT).show();
+    //                    finish();
+    //                }
+    //                Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
+    //            });
+
                 }
-                Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
             });
+
+
+
+
+
+
 
         });
     }
