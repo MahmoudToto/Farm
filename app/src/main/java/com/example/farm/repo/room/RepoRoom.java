@@ -8,10 +8,10 @@ import com.example.farm.pojo.Farm;
 
 import java.util.List;
 
-public class ReboRoom {
+public class RepoRoom {
     FarmDao farmDao;
 
-    public ReboRoom(Application application){
+    public RepoRoom(Application application){
         FarmeData db = FarmeData.getDatabase(application);
         farmDao = db.farmDao();
     }

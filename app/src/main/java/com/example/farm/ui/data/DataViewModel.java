@@ -10,20 +10,20 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.farm.pojo.Farm;
 import com.example.farm.repo.firebase.DataInterface;
 import com.example.farm.repo.firebase.FireBase;
-import com.example.farm.repo.room.ReboRoom;
+import com.example.farm.repo.room.RepoRoom;
 import com.example.farm.repo.room.RoomInterface;
 
 import java.util.List;
 
 public class DataViewModel extends AndroidViewModel implements DataInterface, RoomInterface {
-    private ReboRoom roomBase;
+    private RepoRoom roomBase;
     private FireBase fireBase;
     private MutableLiveData<String> result;
     private MutableLiveData<Long> resultId;
     public DataViewModel(@NonNull Application application) {
         super(application);
         fireBase = FireBase.getInstance(application);
-        roomBase = new ReboRoom(application);
+        roomBase = new RepoRoom(application);
         result = new MutableLiveData<>();
         resultId = new MutableLiveData<>();
     }

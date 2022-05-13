@@ -17,17 +17,21 @@ import java.util.List;
 
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.FarmViewHolder> {
-    ArrayList<Farm> farms;
+    List<Farm> farms;
+    MainViewModel viewModel;
+    public RecyclerViewAdapter(List<Farm> farms, MainViewModel viewModel)
+    {
+        this.farms = farms;
+        this.viewModel = viewModel;
 
-    public RecyclerViewAdapter(ArrayList<Farm> farms) {this.farms = farms;}
-
-    public RecyclerViewAdapter(List<Farm> farms, MainViewModel viewModel) {
     }
+
+
 
     @NonNull
     @Override
     public FarmViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.details,
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.details_list,
                 null,false);
         FarmViewHolder viewHolder = new FarmViewHolder(v);
         return viewHolder;
@@ -37,25 +41,30 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull FarmViewHolder holder, int position) {
         Farm f = farms.get(position);
         holder.name.setText(f.getCustomerName());
-        holder.seller.setText(f.getSellerName());
+        holder.area.setText(f.getArea());
     }
 
     @Override
     public int getItemCount() {
         return farms.size();
     }
-
+    public void filterlist(List<Farm> farms){
+        this.farms = farms;
+        notifyDataSetChanged();
+    }
     class FarmViewHolder extends RecyclerView.ViewHolder{
-        TextView name, seller, area, plante, number;
-        EditText transactions;
+      //  TextView name, seller, area, plante, number;
+     //   EditText transactions;
+        TextView name,area;
         public FarmViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.details_tv_name);
-            seller = itemView.findViewById(R.id.details_tv_seller);
-            area = itemView.findViewById(R.id.details_tv_area);
-            plante = itemView.findViewById(R.id.details_tv_plante);
-            number = itemView.findViewById(R.id.details_tv_number);
-            transactions = itemView.findViewById(R.id.details_tv_transactions);
+          //  seller = itemView.findViewById(R.id.details_tv_seller);
+          //  area = itemView.findViewById(R.id.details_tv_area);
+            area = itemView.findViewById(R.id.details_tv_seller);
+//            plante = itemView.findViewById(R.id.details_tv_plante);
+//            number = itemView.findViewById(R.id.details_tv_number);
+//            transactions = itemView.findViewById(R.id.details_tv_transactions);
 
 
         }

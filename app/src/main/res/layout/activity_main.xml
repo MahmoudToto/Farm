@@ -5,7 +5,10 @@
     android:layout_height="match_parent">
 
 
+
+
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -21,7 +24,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_10sdp"
-            android:padding="@dimen/_8sdp" />
+            android:padding="@dimen/_8sdp">
+
+        </androidx.recyclerview.widget.RecyclerView>
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

@@ -10,7 +10,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.farm.pojo.Farm;
 import com.example.farm.repo.firebase.MainInterface;
 import com.example.farm.repo.firebase.FireBase;
-import com.example.farm.repo.room.ReboRoom;
+import com.example.farm.repo.room.RepoRoom;
 import com.example.farm.repo.room.RoomInterface;
 
 import java.util.List;
@@ -18,11 +18,11 @@ import java.util.List;
 
 public class MainViewModel extends AndroidViewModel implements MainInterface {
     private FireBase fireBase;
-    ReboRoom reboRoom;
+    RepoRoom reboRoom;
     private MutableLiveData<Farm> result;
     public MainViewModel(@NonNull Application application) {
         super(application);
-        reboRoom = new ReboRoom(application);
+        reboRoom = new RepoRoom(application);
         fireBase = FireBase.getInstance(application);
         result = new MutableLiveData<>();
     }
