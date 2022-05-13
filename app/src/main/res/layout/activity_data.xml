@@ -2,20 +2,22 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ProgressBar
         android:id="@+id/data_pb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:layout_centerInParent="true"
+        android:layout_width="45dp"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="366dp"
+        android:layout_marginBottom="555dp"
         android:indeterminateTint="@color/teal_700"
-        />
+        android:visibility="gone" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:orientation="vertical">
 
         <Toolbar
@@ -27,8 +29,8 @@
             android:id="@+id/tv_client_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:hint="Name"
             android:padding="@dimen/_16sdp"
@@ -74,7 +76,6 @@
 
         </LinearLayout>
 
-
         <EditText
             android:id="@+id/tv_client_plant"
             android:layout_width="match_parent"
@@ -93,8 +94,7 @@
             android:layout_margin="16dp"
             android:backgroundTint="#4CAF50"
             android:padding="8dp"
-            android:text="Save Data"
-            />
+            android:text="Save Data" />
 
     </LinearLayout>
 </RelativeLayout>

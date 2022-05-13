@@ -17,16 +17,19 @@ import com.example.farm.R;
 import com.example.farm.pojo.Admin;
 import com.example.farm.pojo.Farm;
 import com.example.farm.ui.login.LoginActivity;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class DataActivity extends AppCompatActivity {
     private Button dataSave;
     private EditText name,area,plant,sellerName, number;
     private DataViewModel viewModel;
     private ProgressBar progressBar;
+    private FirebaseFirestore db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data);
+
         viewModel = new ViewModelProvider
                 .AndroidViewModelFactory(getApplication())
                 .create(DataViewModel.class);
@@ -67,11 +70,7 @@ public class DataActivity extends AppCompatActivity {
             });
 
 
-
-
-
-
-
         });
     }
+
 }

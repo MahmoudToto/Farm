@@ -3,15 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-    android:title="search"
-    android:id="@+id/Search"
-    app:showAsAction="always"
-    app:actionViewClass="android.widget.SearchView" />
-
+        android:id="@+id/menu_Search"
+        android:title="search"
+        app:showAsAction="ifRoom"
+        app:actionViewClass="android.widget.SearchView"
+        />
     <item
         android:title="log out"
-        android:id="@+id/log_out"
+        android:id="@+id/menu_log_out"
         android:icon="@drawable/logout"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         />
+
 </menu>
