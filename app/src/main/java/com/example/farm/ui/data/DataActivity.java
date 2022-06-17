@@ -25,6 +25,8 @@ public class DataActivity extends AppCompatActivity {
     private DataViewModel viewModel;
     private ProgressBar progressBar;
     private FirebaseFirestore db;
+
+//    تمام المكل
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +36,12 @@ public class DataActivity extends AppCompatActivity {
                 .AndroidViewModelFactory(getApplication())
                 .create(DataViewModel.class);
         progressBar = findViewById(R.id.data_pb);
-        dataSave = findViewById(R.id.btn_save_data);
-        name = findViewById(R.id.tv_client_name);
-        area = findViewById(R.id.tv_client_area);
-        plant = findViewById(R.id.tv_client_plant);
-        sellerName = findViewById(R.id.tv_seller_name);
-        number = findViewById(R.id.tv_client_number);
+        dataSave = findViewById(R.id.data_btn_save_data);
+        name = findViewById(R.id.data_customer_name);
+        area = findViewById(R.id.data_customer_area);
+        plant = findViewById(R.id.data_customer_plant);
+        sellerName = findViewById(R.id.data_seller_name);
+        number = findViewById(R.id.data_customer_number);
         init();
     }
 

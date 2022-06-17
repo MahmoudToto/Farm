@@ -1,5 +1,7 @@
 package com.example.farm.ui.main;
 
+import static java.util.Locale.filter;
+
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -46,13 +48,12 @@ SearchView mSearchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
         viewModel = new ViewModelProvider(this).get(MainViewModel.class);
         recyclerView = findViewById(R.id.main_recyclerview);
         toolbar = findViewById(R.id.main_toolbar);
         fabAdd = findViewById(R.id.main_fab_add);
-
+recyclerView.setLayoutManager(new LinearLayoutManager(this));
 //ctr -->shift   -->Up
 
 
@@ -95,7 +96,7 @@ SearchView mSearchView;
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu,menu);
         MenuItem searchItem = menu.findItem(R.id.menu_Search);
-        mSearchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+//        mSearchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -111,23 +112,18 @@ SearchView mSearchView;
                 break;
             case R.id.menu_Search:
 mSearchView .setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
-    }
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    return false;
+                }
 
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        filter(newText);
-        return true;
-    }
-});
-                break;
-        }
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    filter(newText);
+                    return true;
+                }
 
-        return super.onOptionsItemSelected(item);
-    }
-    public void filter(String newText) {
+    private void filter(String newText) {
       List<Farm> listfoodsearch = new ArrayList<>();
         for (Farm farm : list) {
             if (farm.getCustomerName().toLowerCase().contains(newText.toLowerCase())) {
@@ -135,8 +131,15 @@ mSearchView .setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             }
 
         }
-        adapter.filterlist(listfoodsearch);
+//        adapter.filterlist(listfoodsearch);
     }
+
+});
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+}
 
 // For Edit or delete item in recycler view
 
@@ -160,11 +163,10 @@ mSearchView .setOnQueryTextListener(new SearchView.OnQueryTextListener() {
         return super.onContextItemSelected(item);
     }
 
-    void populateDataIntoRV(List<Farm> farms){
-        adapter = new RecyclerViewAdapter(farms,viewModel);
+    void populateDataIntoRV(List<Farm> farms) {
+        adapter = new RecyclerViewAdapter(farms);
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
 }
