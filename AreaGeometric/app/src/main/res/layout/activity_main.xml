@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <Spinner
+        android:id="@+id/areas_shapes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/shapes"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/areas_ractangle_width"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Width"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:padding="16dp"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/areas_ractangle_Height"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Height"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:padding="16dp"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/circle_radius"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Radius"
+        android:inputType="numberDecimal"
+        android:padding="16dp"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/areas_triangle_base"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Base"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:padding="16dp"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/areas_triangle_Height"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Height"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:padding="16dp"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_calculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#CFCCCC"
+        android:hint="Calculate" />
+
+    <TextView
+        android:id="@+id/view_calcualat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0C1447"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

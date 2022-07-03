@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ِArea Geometric</string>
+
+    <string name="areas_rectangle_width_hint">Whidth</string>
+    <string name="areas_rectangle_height_hint">Height</string>
+    <string name="areas_circle_base_hint">Radius</string>
+    <string name="areas_triangle_height_hint">Height</string>
+    <string name="areas_triangle_base_hint">Base</string>
+    <string name="areas_calculate_text_hint">Calculate</string>
+
+    <string-array name="shapes">
+        <item>select shapes</item>
+        <item>rectangle</item>
+        <item>circle</item>
+        <item>triangle</item>
+
+
+
+    </string-array>
+    
+</resources>
