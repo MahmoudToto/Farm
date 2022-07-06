@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.MenuItemCompat;
+import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,11 +25,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.farm.R;
 
 import com.example.farm.pojo.Farm;
 import com.example.farm.ui.data.DataActivity;
+import com.example.farm.ui.details.DetailsActivity;
 import com.example.farm.ui.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,14 +40,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RecyclerInterface{
     private Toolbar toolbar;
     private FloatingActionButton fabAdd;
     private RecyclerView recyclerView;
     RecyclerViewAdapter adapter;
     MainViewModel viewModel;
     List<Farm> list = new ArrayList<>();
-SearchView mSearchView;
+    SearchView mSearchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +56,7 @@ SearchView mSearchView;
         recyclerView = findViewById(R.id.main_recyclerview);
         toolbar = findViewById(R.id.main_toolbar);
         fabAdd = findViewById(R.id.main_fab_add);
-recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 //ctr -->shift   -->Up
 
 
@@ -80,7 +83,6 @@ recyclerView.setLayoutManager(new LinearLayoutManager(this));
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, DataActivity.class);
                 ar1.launch(intent);
-
             }
         });
 
@@ -110,8 +112,10 @@ recyclerView.setLayoutManager(new LinearLayoutManager(this));
                 finish();
                 startActivity(new Intent(this, LoginActivity.class));
                 break;
+
             case R.id.menu_Search:
-mSearchView .setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                mSearchView .setOnQueryTextListener(new SearchView.OnQueryTextListener()
+                {
                 @Override
                 public boolean onQueryTextSubmit(String query) {
                     return false;
@@ -124,10 +128,10 @@ mSearchView .setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 }
 
     private void filter(String newText) {
-      List<Farm> listfoodsearch = new ArrayList<>();
+      List<Farm> listsearch = new ArrayList<>();
         for (Farm farm : list) {
             if (farm.getCustomerName().toLowerCase().contains(newText.toLowerCase())) {
-                listfoodsearch.add(farm);
+                listsearch.add(farm);
             }
 
         }
@@ -141,32 +145,16 @@ mSearchView .setOnQueryTextListener(new SearchView.OnQueryTextListener() {
         return super.onOptionsItemSelected(item);
 }
 
-// For Edit or delete item in recycler view
-
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_edite,menu);
-    }
-
-    @Override
-    public boolean onContextItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.menu_edit:
-
-                break;
-
-            case R.id.menu_delete:
-
-                break;
-        }
-        return super.onContextItemSelected(item);
-    }
-
     void populateDataIntoRV(List<Farm> farms) {
-        adapter = new RecyclerViewAdapter(farms);
+        adapter = new RecyclerViewAdapter(farms,this::onItemClick);
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
+        startActivity(intent);
     }
 
 }

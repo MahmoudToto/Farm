@@ -34,10 +34,10 @@ public class LoginActivity extends AppCompatActivity {
                 .AndroidViewModelFactory(getApplication())
                 .create(LoginViewModel.class);
 
-        register = findViewById(R.id.tv_register);
-        etEmail = findViewById(R.id.log_email);
-        etPassword = findViewById(R.id.log_password);
-        login = findViewById(R.id.btn_log_in);
+        register = findViewById(R.id.login_tv_register);
+        etEmail = findViewById(R.id.login_tv_email);
+        etPassword = findViewById(R.id.login_tv_password);
+        login = findViewById(R.id.login_btn_button);
 
 
         login.setOnClickListener(view -> {

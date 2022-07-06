@@ -26,7 +26,6 @@ public class DataActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private FirebaseFirestore db;
 
-//    تمام المكل
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

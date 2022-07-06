@@ -11,9 +11,9 @@ import com.example.farm.R;
 import com.example.farm.pojo.Admin;
 
 public class RegisterActivity extends AppCompatActivity {
-    private EditText register_number, register_password, register_email, register_name;
-    private Button btn_create_account;
-    private String name, email, password, number;
+    private EditText register_number,confPassword, register_password, register_email, register_name;
+    private Button create_account;
+    private String name, email, password,confirmPassword, number;
     private RegisterViewModel registerViewModel;
 
     @Override
@@ -25,22 +25,22 @@ public class RegisterActivity extends AppCompatActivity {
                 .AndroidViewModelFactory(getApplication())
                 .create(RegisterViewModel.class);
 
-        btn_create_account = findViewById(R.id.btn_create_account);
-        register_name = findViewById(R.id.tv_register_name);
-        register_email = findViewById(R.id.tv_register_email);
-        register_password = findViewById(R.id.tv_register_password);
-        register_number = findViewById(R.id.tv_register_number);
+        create_account = findViewById(R.id.register_btn_signup);
+        confPassword = findViewById(R.id.register_tv_confpassword);
+        register_email = findViewById(R.id.register_tv_email);
+        register_password = findViewById(R.id.register_tv_password);
+//        register_number = findViewById(R.id.tv_register_number);
 
 
-        btn_create_account.setOnClickListener(view -> {
+        create_account.setOnClickListener(view -> {
             name = register_name.getText().toString();
             email = register_email.getText().toString();
             password = register_password.getText().toString();
-            number = register_number.getText().toString();
+            confirmPassword = confPassword.getText().toString();
+//            number = register_number.getText().toString();
 
             if(!isValide()) return;
-
-            Admin admin = new Admin(name, email, number, password);
+            Admin admin = new Admin(name, email,confirmPassword, password);
 
             registerViewModel.createEmailAdmin(admin).observe(this, result -> {
                 if(result != null){
@@ -63,8 +63,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         else if(password.replaceAll("\\s", "").length() < 6 || name.replaceAll("\\s", "").equals(""))
             return false;
-        else if(number.isEmpty() || number.replaceAll("\\s", "").equals(""))
-            return false;
+//        else if(number.isEmpty() || number.replaceAll("\\s", "").equals(""))
+//            return false;
 
         return true;
 
